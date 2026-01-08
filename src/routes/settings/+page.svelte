@@ -1,5 +1,6 @@
 <script lang="ts">
     import {colorScheme, version, user} from '$lib/stores/telegram';
+    import {employeeFullname} from '$lib/stores/employee';
     import * as Card from '$lib/components/ui/card/index.js';
     import * as Field from '$lib/components/ui/field/index.js';
     import {Separator} from '$lib/components/ui/separator/index.js';
@@ -68,9 +69,9 @@
                 <div class="flex items-center gap-3">
                     {#if $user.photo_url}
                         <img
-                            src={$user.photo_url}
-                            alt={$user.first_name}
-                            class="w-12 h-12 rounded-full object-cover"
+                                src={$user.photo_url}
+                                alt={$user.first_name}
+                                class="w-12 h-12 rounded-full object-cover"
                         />
                     {:else}
                         <div class="w-12 h-12 rounded-full bg-tg-button flex items-center justify-center text-tg-button-text text-lg font-bold">
@@ -79,7 +80,11 @@
                     {/if}
                     <div>
                         <p class="font-semibold text-tg-text">
-                            {$user.first_name} {$user.last_name || ''}
+                            {#if $employeeFullname}
+                                {$employeeFullname}
+                            {:else}
+                                {$user.first_name} {$user.last_name || ''}
+                            {/if}
                         </p>
                         <p class="text-sm text-tg-hint">@{$user.username || 'user'}</p>
                     </div>

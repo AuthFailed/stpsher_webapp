@@ -27,6 +27,7 @@
 		if (typeof window === 'undefined') return;
 
 		indicators.forEach((indicator, index) => {
+			if (!indicator) return;
 			const isActive = $page.url.pathname === navItems[index].path;
 			indicator.style.opacity = isActive ? '1' : '0';
 			indicator.style.transform = isActive ? 'scale(1)' : 'scale(0.8)';
