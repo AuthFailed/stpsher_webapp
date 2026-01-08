@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+/* Telegram WebApp theme CSS variables */
+:root {
+	--tg-theme-bg-color: #ffffff;
+	--tg-theme-text-color: #000000;
+	--tg-theme-hint-color: #999999;
+	--tg-theme-link-color: #2481cc;
+	--tg-theme-button-color: #2481cc;
+	--tg-theme-button-text-color: #ffffff;
+	--tg-theme-secondary-bg-color: #f4f4f5;
+	--tg-theme-header-bg-color: #ffffff;
+	--tg-theme-section-bg-color: #ffffff;
+	--tg-theme-section-header-text-color: #6e6e6e;
+	--tg-theme-section-separator-color: #dfdfdf;
+	--tg-theme-subtitle-text-color: #999999;
+}
+
+/* Apply Telegram theme colors to body */
+body {
+	background-color: var(--tg-theme-bg-color);
+	color: var(--tg-theme-text-color);
+}
+
+/* Smooth transitions for theme changes */
+* {
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Remove default margins and padding */
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+/* Ensure proper viewport for Telegram WebApp */
+#app {
+	min-height: 100vh;
+}
